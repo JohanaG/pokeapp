@@ -1,0 +1,11 @@
+<header>
+  <ul class="flex justify-center">
+    <li
+      class="border-b-8 bg-white px-4 py-2 font-medium hover:text-white"
+      [ngClass]="item.class"
+      *ngFor="let item of menu"
+    >
+      {{ item.title }}
+    </li>
+  </ul>
+</header>
