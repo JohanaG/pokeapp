@@ -63,6 +63,7 @@ export interface ISprites {
   front_shiny: string;
   front_shiny_female: null;
   animated?: ISprites;
+  other: Other;
 }
 
 export interface RedBlue {
@@ -79,6 +80,17 @@ export interface OfficialArtwork {
   front_shiny: string;
 }
 
+export interface Other {
+  dream_world: IDreamWorld;
+  home: Home;
+  'official-artwork': OfficialArtwork;
+  showdown: ISprites;
+}
+
+export interface IDreamWorld {
+  front_default: string;
+  front_female: null;
+}
 export interface Home {
   front_default: string;
   front_female: null;

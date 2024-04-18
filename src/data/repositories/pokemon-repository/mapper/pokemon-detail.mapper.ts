@@ -9,7 +9,7 @@ export class PokemonDetailMapper extends Mapper<
 > {
   mapFrom(param: IPokemonDetailsEntity): IPokemonDetailModel {
     return {
-      cover: param.sprites.front_default,
+      cover: param.sprites.other?.dream_world.front_default,
       types: param.types.map((value) => {
         return { ...value.type, background: PokemonTypes[value.type.name] };
       }),
