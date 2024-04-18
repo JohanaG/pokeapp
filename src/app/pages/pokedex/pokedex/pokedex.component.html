@@ -1,6 +1,9 @@
 <article>
-  <ul class="flex flex-col gap-3 p-2">
-    <app-pokemon />
-    <app-pokemon />
+  <ng-container></ng-container>
+  <ul
+    class="flex flex-col gap-3 p-2"
+    *ngFor="let pokemon of getPokemons | async"
+  >
+    <app-pokemon [pokemon]="pokemon" />
   </ul>
 </article>
