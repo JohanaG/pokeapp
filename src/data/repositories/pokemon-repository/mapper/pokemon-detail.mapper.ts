@@ -9,6 +9,7 @@ export class PokemonDetailMapper extends Mapper<
   mapFrom(param: IPokemonDetailsEntity): IPokemonDetailModel {
     return {
       cover: param.sprites.front_default,
+      types: param.types.map((value) => value.type),
     };
   }
 }
