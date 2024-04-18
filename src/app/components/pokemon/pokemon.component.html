@@ -1,10 +1,6 @@
 <div class="flex w-full flex-col gap-2 rounded-md bg-white p-2">
-  <div class="flex flex-col items-center">
-    <img
-      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png"
-      alt="pokemon"
-      class="w-48"
-    />
+  <div class="flex flex-col items-center" *ngIf="getPokemon | async as pokemon">
+    <img [src]="pokemon.cover" alt="pokemon" class="w-48" />
     <p class="w-full">#0013</p>
   </div>
   <div class="flex flex-col gap-1">
