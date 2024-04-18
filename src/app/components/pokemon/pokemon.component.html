@@ -1,11 +1,16 @@
-<div class="flex w-full flex-col gap-2 rounded-md bg-white p-2">
+<div class="flex w-full flex-col gap-2 rounded-md bg-white p-4">
   <ng-container *ngIf="getPokemon | async as pokemonDetail">
     <div class="flex flex-col items-center">
-      <img [src]="pokemonDetail.cover" alt="pokemon" class="w-48" />
-      <p class="w-full">#{{ pokemonId }}</p>
+      <a href="/pokedex/{{ pokemonId }}">
+        <img
+          [src]="pokemonDetail.cover"
+          alt="pokemon"
+          class="h-48 w-full bg-cover"
+      /></a>
+      <p class="w-full font-medium text-gray-400">#{{ pokemonId }}</p>
     </div>
     <div class="flex flex-col gap-1">
-      <h1>{{ _pokemon?.name }}</h1>
+      <h1 class="font-semibold">{{ _pokemon?.name }}</h1>
       <app-chips [chips]="pokemonDetail.types" /></div
   ></ng-container>
 </div>
