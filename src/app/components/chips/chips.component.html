@@ -1,5 +1,9 @@
 <ul class="flex gap-2">
-  <li class="rounded bg-purple-600 px-2 py-1" *ngFor="let type of chips">
+  <li
+    class="rounded px-2 py-0.5 text-white"
+    [ngClass]="type.background"
+    *ngFor="let type of chips"
+  >
     {{ type.name }}
   </li>
 </ul>
