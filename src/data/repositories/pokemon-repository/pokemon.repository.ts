@@ -15,17 +15,16 @@ export class PokemonRepository extends PokemonRepositoryDomain {
   private mapper = new PokemonDetailMapper();
 
   getPokemonList(): Observable<IPokemonModel[]> {
-    return this.http.get<IPokemonEntity>(this.urlBase).pipe(
-      map((pokemonList) => pokemonList.results),
-      tap((value) => console.log(value)),
-    );
+    return this.http
+      .get<IPokemonEntity>(this.urlBase)
+      .pipe(map((pokemonList) => pokemonList.results));
   }
 
   getPokemonById(id: number): Observable<IPokemonDetailModel> {
     const endpoint = this.urlBase + '/' + id;
     return this.http.get<IPokemonDetailsEntity>(endpoint).pipe(
-      map((value) => this.mapper.mapFrom(value)),
       tap((value) => console.log(value)),
+      map((value) => this.mapper.mapFrom(value)),
     );
   }
 }
