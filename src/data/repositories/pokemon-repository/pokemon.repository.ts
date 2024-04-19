@@ -64,4 +64,11 @@ export class PokemonRepository extends PokemonRepositoryDomain {
       tap((value) => console.log(value)),
     );
   }
+
+  getPokemonByName(name: string): Observable<IPokemonDetailModel> {
+    const endpoint = this.urlBase + '/' + name;
+    return this.http
+      .get<IPokemonDetailsEntity>(endpoint)
+      .pipe(map((value) => this.mapper.mapFrom(value)));
+  }
 }
