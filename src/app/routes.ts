@@ -10,4 +10,9 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     loadChildren: () => import('./pages/pokedex/routes').then((r) => r.routes),
   },
+  {
+    path: 'habilidades',
+    component: DefaultLayoutComponent,
+    loadChildren: () => import('./pages/ability/routes').then((r) => r.routes),
+  },
 ];
