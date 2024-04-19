@@ -2,6 +2,7 @@ import { Mapper } from 'src/base/mapper';
 import { IPokemonDetailsEntity } from '../entity/pokemon-details.entity';
 import { IPokemonDetailModel } from 'src/domain/models/pokemon-details.model';
 import { PokemonTypes } from 'src/app/models/enums/pokemon-type.enum';
+import { GetPokemonID } from 'src/app/utils/helpers/get-pokemon-id';
 
 export class PokemonDetailMapper extends Mapper<
   IPokemonDetailsEntity,
@@ -9,6 +10,7 @@ export class PokemonDetailMapper extends Mapper<
 > {
   mapFrom(param: IPokemonDetailsEntity): IPokemonDetailModel {
     return {
+      id: param.id,
       cover: param.sprites.other?.dream_world.front_default,
       types: param.types.map((value) => {
         return { ...value.type, background: PokemonTypes[value.type.name] };
