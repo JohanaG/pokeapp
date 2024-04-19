@@ -11,13 +11,18 @@ import { PokemonDetailMapper } from './mapper/pokemon-detail.mapper';
 import { PokemonTypeDetailMapper } from './mapper/pokemon-type-detail.mapper';
 import { IPokemonTypeDetails } from './entity/pokemon-type-details.entity';
 import { IPokemonTypeModel } from 'src/domain/models/pokemon-type.model';
+import { IPokemonSpeciesModel } from 'src/domain/models/pokemon-species.model';
+import { ISpeciesDetailsEntity } from './entity/pokemon-species.entity';
+import { PokemonSpeciesMapper } from './mapper/pokemon-species.mapper';
 
 export class PokemonRepository extends PokemonRepositoryDomain {
   private http = inject(HttpClient);
   private urlBase = env.host + 'pokemon';
   private urlTypeDetail = env.host + 'type';
+  private urlSpecies = env.host + 'pokemon-species';
   private mapper = new PokemonDetailMapper();
   private mapperTypeDetail = new PokemonTypeDetailMapper();
+  private mapperSpecies = new PokemonSpeciesMapper();
 
   getPokemonList(): Observable<IPokemonModel[]> {
     return this.http
@@ -33,11 +38,19 @@ export class PokemonRepository extends PokemonRepositoryDomain {
     );
   }
 
-  getPokemonTypeByID(id: number): Observable<IPokemonTypeModel[]> {
+  getPokemonTypeById(id: number): Observable<IPokemonTypeModel[]> {
     const endpoint = this.urlTypeDetail + '/' + id;
     return this.http.get<IPokemonTypeDetails>(endpoint).pipe(
       tap((value) => console.log(value)),
       map((value) => this.mapperTypeDetail.mapFrom(value)),
+    );
+  }
+
+  getPokemonSpecieById(id: number): Observable<IPokemonSpeciesModel> {
+    const endpoint = this.urlSpecies + '/' + id;
+    return this.http.get<ISpeciesDetailsEntity>(endpoint).pipe(
+      map((value) => this.mapperSpecies.mapFrom(value)),
+      tap((value) => console.log(value)),
     );
   }
 }

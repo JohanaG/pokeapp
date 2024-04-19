@@ -9,6 +9,6 @@ export class GetPokemonTypeByIdUseCase
   constructor(private pokemonRepository: PokemonRepositoryDomain) {}
 
   execute(id: number): Observable<IPokemonTypeModel[]> {
-    return this.pokemonRepository.getPokemonTypeByID(id);
+    return this.pokemonRepository.getPokemonTypeById(id);
   }
 }
