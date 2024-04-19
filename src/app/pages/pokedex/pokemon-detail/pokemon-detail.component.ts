@@ -27,7 +27,6 @@ export class PokemonDetailComponent {
       this.pokemonId = Number(value['id']);
       return this.getPokemonById.execute(this.pokemonId);
     }),
-    tap((value) => console.log(value)),
   );
 
   pokemonWeaknesses = this.pokemon.pipe(
@@ -35,7 +34,6 @@ export class PokemonDetailComponent {
       const pokemonTypeId = this.getId(pokemon.types[0].url);
       return this.getPokemonTypeById.execute(pokemonTypeId);
     }),
-    tap((value) => console.log(value)),
   );
 
   pokemonSpecies = this.pokemon.pipe(

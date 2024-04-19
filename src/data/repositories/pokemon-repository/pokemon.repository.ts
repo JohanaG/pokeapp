@@ -32,25 +32,22 @@ export class PokemonRepository extends PokemonRepositoryDomain {
 
   getPokemonById(id: number): Observable<IPokemonDetailModel> {
     const endpoint = this.urlBase + '/' + id;
-    return this.http.get<IPokemonDetailsEntity>(endpoint).pipe(
-      tap((value) => console.log(value)),
-      map((value) => this.mapper.mapFrom(value)),
-    );
+    return this.http
+      .get<IPokemonDetailsEntity>(endpoint)
+      .pipe(map((value) => this.mapper.mapFrom(value)));
   }
 
   getPokemonTypeById(id: number): Observable<IPokemonTypeModel[]> {
     const endpoint = this.urlTypeDetail + '/' + id;
-    return this.http.get<IPokemonTypeDetails>(endpoint).pipe(
-      tap((value) => console.log(value)),
-      map((value) => this.mapperTypeDetail.mapFrom(value)),
-    );
+    return this.http
+      .get<IPokemonTypeDetails>(endpoint)
+      .pipe(map((value) => this.mapperTypeDetail.mapFrom(value)));
   }
 
   getPokemonSpecieById(id: number): Observable<IPokemonSpeciesModel> {
     const endpoint = this.urlSpecies + '/' + id;
-    return this.http.get<ISpeciesDetailsEntity>(endpoint).pipe(
-      map((value) => this.mapperSpecies.mapFrom(value)),
-      tap((value) => console.log(value)),
-    );
+    return this.http
+      .get<ISpeciesDetailsEntity>(endpoint)
+      .pipe(map((value) => this.mapperSpecies.mapFrom(value)));
   }
 }

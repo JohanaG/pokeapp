@@ -8,4 +8,5 @@ export interface IPokemonDetailModel {
   height: number;
   abilities: IPokemonModel[];
   species: IPokemonModel;
+  name: string;
 }

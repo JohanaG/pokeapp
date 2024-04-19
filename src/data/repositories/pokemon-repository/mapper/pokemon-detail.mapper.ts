@@ -19,6 +19,7 @@ export class PokemonDetailMapper extends Mapper<
         return value.ability;
       }),
       species: param.species,
+      name: param.name[0].toUpperCase() + param.name.substring(1),
     };
   }
 }
