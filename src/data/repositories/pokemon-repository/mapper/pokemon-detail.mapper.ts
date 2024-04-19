@@ -13,6 +13,11 @@ export class PokemonDetailMapper extends Mapper<
       types: param.types.map((value) => {
         return { ...value.type, background: PokemonTypes[value.type.name] };
       }),
+      peso: param.weight,
+      altura: param.height,
+      habilidades: param.abilities.map((value) => {
+        return value.ability;
+      }),
     };
   }
 }
