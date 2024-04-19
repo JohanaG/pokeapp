@@ -2,25 +2,29 @@
   <ng-container *ngIf="pokemon | async as pokemonDetail">
     <img [src]="pokemonDetail.cover" alt="pokemon detail" class="h-64 w-full" />
     <div class="grid gap-3">
-      <p class="w-full font-medium text-gray-400">#01</p>
+      <p class="w-full font-medium text-gray-400">No. {{ pokemonId }}</p>
       <h1 class="text-2xl font-semibold">Nombre</h1>
       <div class="grid justify-center rounded-lg bg-indigo-100 p-2 text-center">
         <p class="w-full font-bold">Peso</p>
-        <p class="w-full font-medium">{{ pokemonDetail.peso }}</p>
+        <p class="w-full font-medium">{{ pokemonDetail.weight }}</p>
         <p class="w-full font-bold">Altura</p>
-        <p class="w-full font-medium">{{ pokemonDetail.altura }}</p>
+        <p class="w-full font-medium">{{ pokemonDetail.height }}</p>
         <p class="w-full font-bold">Categoria</p>
-        <p class="w-full font-medium">Seen</p>
-        <p class="w-full font-bold">Descripcion</p>
-        <p class="w-full font-medium">Verde</p>
+        <p class="w-full font-medium">
+          {{ (pokemonSpecies | async)?.category }}
+        </p>
         <p class="w-full font-bold">Habilidades</p>
         <p>
           <span
-            class="not-last:after:content-['/']"
-            *ngFor="let item of pokemonDetail.habilidades"
+            class="not-last:after:content-['/'] font-medium"
+            *ngFor="let item of pokemonDetail.abilities"
           >
             {{ item.name }}
           </span>
+        </p>
+        <p class="w-full font-bold">Descripcion</p>
+        <p class="w-full text-justify">
+          {{ (pokemonSpecies | async)?.description }}
         </p>
       </div>
     </div>
