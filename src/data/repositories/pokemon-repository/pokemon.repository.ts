@@ -14,15 +14,20 @@ import { IPokemonTypeModel } from 'src/domain/models/pokemon-type.model';
 import { IPokemonSpeciesModel } from 'src/domain/models/pokemon-species.model';
 import { ISpeciesDetailsEntity } from './entity/pokemon-species.entity';
 import { PokemonSpeciesMapper } from './mapper/pokemon-species.mapper';
+import { PokemonEvalutionMapper } from './mapper/pokemon-evalution.mapper';
+import { IEvolutionChainEntity } from './entity/pokemon-evoution-chain.entity';
+import { __values } from 'tslib';
 
 export class PokemonRepository extends PokemonRepositoryDomain {
   private http = inject(HttpClient);
   private urlBase = env.host + 'pokemon';
   private urlTypeDetail = env.host + 'type';
   private urlSpecies = env.host + 'pokemon-species';
+  private urlEvolution = env.host + 'evolution-chain';
   private mapper = new PokemonDetailMapper();
   private mapperTypeDetail = new PokemonTypeDetailMapper();
   private mapperSpecies = new PokemonSpeciesMapper();
+  private mapperEvolution = new PokemonEvalutionMapper();
 
   getPokemonList(): Observable<IPokemonModel[]> {
     return this.http
@@ -46,8 +51,17 @@ export class PokemonRepository extends PokemonRepositoryDomain {
 
   getPokemonSpecieById(id: number): Observable<IPokemonSpeciesModel> {
     const endpoint = this.urlSpecies + '/' + id;
-    return this.http
-      .get<ISpeciesDetailsEntity>(endpoint)
-      .pipe(map((value) => this.mapperSpecies.mapFrom(value)));
+    return this.http.get<ISpeciesDetailsEntity>(endpoint).pipe(
+      map((value) => this.mapperSpecies.mapFrom(value)),
+      tap((value) => console.log(value)),
+    );
+  }
+
+  getEvolutionChance(id: number): Observable<IPokemonModel[]> {
+    const endpoint = this.urlEvolution + '/' + id;
+    return this.http.get<IEvolutionChainEntity>(endpoint).pipe(
+      map((value) => this.mapperEvolution.mapFrom(value)),
+      tap((value) => console.log(value)),
+    );
   }
 }
