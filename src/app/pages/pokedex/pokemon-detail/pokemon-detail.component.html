@@ -22,7 +22,7 @@
         <p class="w-full font-bold">Habilidades</p>
         <p>
           <span
-            class="not-last:after:content-['/'] font-medium"
+            class="font-medium not-last:after:content-['/']"
             *ngFor="let item of pokemonDetail.abilities"
           >
             {{ item.name }}
@@ -43,16 +43,15 @@
       <app-chips [chips]="(pokemonWeaknesses | async) ?? []" />
     </div>
     <div class="grid w-full rounded-lg bg-gray-400 p-2 lg:col-span-2">
-      <h1 class="text-xl font-semibold text-white">Evoluciones</h1>
-      <div class="mx-auto grid gap-2">
-        <img
-          [src]="pokemonDetail.cover"
-          alt="pokemon detail"
-          class="h-32 w-32 rounded-full border-4"
-        />
-        <p class="w-full text-center font-bold text-white">Nombre | No. 1</p>
-        <app-chips [chips]="pokemonDetail.types" />
-      </div>
+      <h1 class="text-center text-xl font-semibold text-white">Evoluciones</h1>
+      <ul
+        class="flex flex-col gap-8 lg:flex-row lg:justify-center"
+        *ngIf="pokemonEvolution | async as evolution"
+      >
+        <li *ngFor="let item of evolution">
+          <app-pokemon-evolution [namePokemon]="item.name" />
+        </li>
+      </ul>
     </div>
   </ng-container>
 </article>
