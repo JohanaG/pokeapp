@@ -1,1 +1,5 @@
-export const GetPokemonID = (url: string) => url.substring(34, url.length - 1);
+export const GetPokemonID = (url: string) => {
+  const urlSplit = url.split('/');
+  if (urlSplit.length === 0) return '';
+  return urlSplit[urlSplit.length - 2];
+};
