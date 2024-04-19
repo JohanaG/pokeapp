@@ -9,5 +9,5 @@ import { IPokemonTypeModel } from 'src/domain/models/pokemon-type.model';
   templateUrl: './chips.component.html',
 })
 export class ChipsComponent {
-  @Input() chips?: IPokemonTypeModel[];
+  @Input() chips: IPokemonTypeModel[] = [];
 }
