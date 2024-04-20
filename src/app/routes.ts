@@ -14,4 +14,10 @@ export const routes: Routes = [
     component: DefaultLayoutComponent,
     loadChildren: () => import('./pages/ability/routes').then((r) => r.routes),
   },
+  {
+    path: 'tipos',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./pages/pokemon-type/routes').then((r) => r.routes),
+  },
 ];
