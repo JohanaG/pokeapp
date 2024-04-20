@@ -15,7 +15,7 @@ export interface IPokemonDetailsEntity {
   past_abilities: any[];
   past_types: any[];
   species: ISpecies;
-  sprites: ISprites;
+  sprites?: ISprites;
   stats: IStat[];
   types: IType[];
   weight: number;
@@ -58,7 +58,7 @@ export interface ISprites {
   back_female: null;
   back_shiny: string;
   back_shiny_female: null;
-  front_default: string;
+  front_default?: string;
   front_female: null;
   front_shiny: string;
   front_shiny_female: null;

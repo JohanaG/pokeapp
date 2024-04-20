@@ -8,10 +8,12 @@ export class PokemonDetailMapper extends Mapper<
   IPokemonDetailModel
 > {
   mapFrom(param: IPokemonDetailsEntity): IPokemonDetailModel {
-    const imageDefault = param.sprites.front_default;
+    const imageDefault =
+      param.sprites?.front_default ?? 'assets/image/pokemon-default.jpg';
+
     return {
       id: param.id,
-      cover: param.sprites.other?.dream_world.front_default ?? imageDefault,
+      cover: param.sprites?.other?.dream_world.front_default ?? imageDefault,
       types: param.types.map((value) => {
         return { ...value.type, background: PokemonTypes[value.type.name] };
       }),

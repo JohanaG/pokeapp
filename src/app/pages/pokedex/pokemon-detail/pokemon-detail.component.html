@@ -39,13 +39,27 @@
         </p>
       </div>
     </div>
-    <div>
-      <h1 class="font-semibold">Tipo</h1>
-      <app-chips [chips]="pokemonDetail.types" />
-    </div>
-    <div>
-      <h1 class="font-semibold">Debilidades</h1>
-      <app-chips [chips]="(pokemonWeaknesses | async) ?? []" />
+    <div
+      class="grid justify-items-center gap-4 text-center lg:col-span-2 lg:grid-cols-3"
+    >
+      <div>
+        <h1 class="text-center font-semibold">Tipo</h1>
+        <app-chips [chips]="pokemonDetail.types" />
+      </div>
+      <div>
+        <h1 class="font-semibold">Debilidades</h1>
+        <app-chips [chips]="(pokemonWeaknesses | async) ?? []" />
+      </div>
+      <div>
+        <h1 class="font-semibold">Tipo de Huevo</h1>
+        <a
+          routerLink="/huevo-pokemon/{{
+            (pokemonSpecies | async)?.eggGroup?.name
+          }}"
+          class="rounded-md bg-green-500 px-2 font-medium text-white"
+          >{{ (pokemonSpecies | async)?.eggGroup?.name }}</a
+        >
+      </div>
     </div>
     <div class="grid rounded-lg bg-gray-400 p-2 lg:col-span-2">
       <h1 class="text-center text-xl font-semibold text-white">Evoluciones</h1>
