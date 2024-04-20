@@ -6,3 +6,4 @@ export * from './get-pokemon-species-by-id-usecase.provider';
 export * from './get-pokemon-evolution-usecase.provider';
 export * from './get-pokemon-by-name-usecase-provider';
 export * from './get-pokemon-ability-usecase.provider';
+export * from './get-pokemon-egg-group-by-id-usecase.provider';

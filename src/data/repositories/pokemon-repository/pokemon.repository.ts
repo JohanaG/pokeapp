@@ -20,6 +20,9 @@ import { PokemonAbilityMapper } from './mapper/pokemon-ability.mapper';
 
 import { IAbilityEntity } from './entity/pokemon-ability.entity';
 import { IPokemonAbilityModel } from 'src/domain/models/pokemon-ability.model';
+import { PokemonEggGroupMapper } from './mapper/pokemon-egg-group.mapper';
+import { IPokemonEggGroupModel } from 'src/domain/models/pokemon-egg-group.model';
+import { IEggGroupEntity } from './entity/pokemon-egg-group.entity';
 
 export class PokemonRepository extends PokemonRepositoryDomain {
   private http = inject(HttpClient);
@@ -28,11 +31,13 @@ export class PokemonRepository extends PokemonRepositoryDomain {
   private urlSpecies = env.host + 'pokemon-species';
   private urlEvolution = env.host + 'evolution-chain';
   private urlAbility = env.host + 'ability';
+  private urlEggGroup = env.host + 'egg-group';
   private mapper = new PokemonDetailMapper();
   private mapperTypeDetail = new PokemonTypeDetailMapper();
   private mapperSpecies = new PokemonSpeciesMapper();
   private mapperEvolution = new PokemonEvalutionMapper();
   private mapperAbility = new PokemonAbilityMapper();
+  private mapperEggGroup = new PokemonEggGroupMapper();
 
   getPokemonList(): Observable<IPokemonModel[]> {
     return this.http
@@ -78,8 +83,15 @@ export class PokemonRepository extends PokemonRepositoryDomain {
   getAbilityByName(name: string): Observable<IPokemonAbilityModel> {
     const endpoint = this.urlAbility + '/' + name;
     return this.http.get<IAbilityEntity>(endpoint).pipe(
-      map((value) => this.mapperAbility.mapFrom(value)),
+      map(this.mapperAbility.mapFrom),
       tap((value) => console.log(value)),
     );
+  }
+
+  getEggGroupById(id: number): Observable<IPokemonEggGroupModel> {
+    const endpoint = this.urlEggGroup + '/' + id;
+    return this.http
+      .get<IEggGroupEntity>(endpoint)
+      .pipe(map(this.mapperEggGroup.mapFrom));
   }
 }
