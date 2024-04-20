@@ -1,27 +1,24 @@
-# Pokeapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+# Prueba Tecnica Grupo Platino
 
-## Development server
+Este proyecto es una prueba tecnica realizada para Grupo Platino, utilizando a [angular v16.2.12](https://v16.angular.io/docs),[Tailwind Css v3.4.3](https://tailwindcss.com/docs/installation), con el api de [pokeapi](https://pokeapi.co/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Documentation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+El servidor debe de utilizarse en el puerto por defecto 4200 con el comando ng s 
 
-## Build
+## Rutas
+* / Pagina de presentacion con boton para ir al pokedex
+* /pokedex Muestra una lista de 20 pokemones con un boton para ir cargando otros 20 pokemones
+* /habilidades Muestra la descripcion de la habilidad y la lista de los pokemones que la poseen
+* /tipos Muestra el nombre del tipo de pokemon y la lista de los pokemones que pertenecen a ese tipo
+* /huevo-pokemon Muestra el nombre del huevo de pokemon y la lista de los pokemonos que pertenecen a ese tipo
+* /** Cualquier ruta que no este mapeada redireccionara a la pagina de presentacion
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors
 
-## Running end-to-end tests
+- [@JohanaG](https://github.com/JohanaG)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
