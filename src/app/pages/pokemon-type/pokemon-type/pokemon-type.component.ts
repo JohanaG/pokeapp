@@ -5,11 +5,17 @@ import { GetPokemonTypeByIdUseCase } from 'src/usecases/pokemon/get-pokemon-type
 import { switchMap } from 'rxjs';
 import { HeaderPokemonComponent } from 'src/app/components/header-pokemon/header-pokemon.component';
 import { TypesPokemonComponent } from 'src/app/components/types-pokemon/types-pokemon.component';
+import { DataModule } from 'src/data/data.module';
 
 @Component({
   selector: 'app-pokemon-type',
   standalone: true,
-  imports: [CommonModule, HeaderPokemonComponent, TypesPokemonComponent],
+  imports: [
+    CommonModule,
+    HeaderPokemonComponent,
+    TypesPokemonComponent,
+    DataModule,
+  ],
   templateUrl: './pokemon-type.component.html',
 })
 export class PokemonTypeComponent {
