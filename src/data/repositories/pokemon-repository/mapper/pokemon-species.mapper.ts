@@ -15,6 +15,7 @@ export class PokemonSpeciesMapper extends Mapper<
       category:
         param.genera.find((text) => text.language.name === 'es')?.genus ?? '',
       urlEvolution: param.evolution_chain.url,
+      eggGroup: param.egg_groups[0],
     };
   }
 }

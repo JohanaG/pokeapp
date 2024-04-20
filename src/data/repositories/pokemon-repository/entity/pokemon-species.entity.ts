@@ -4,6 +4,7 @@ export interface ISpeciesDetailsEntity {
   flavor_text_entries: IFlavorTextEntry[];
   genera: IGenus[];
   evolution_chain: IEvolutionChain;
+  egg_groups: IPokemonModel[];
 }
 
 export interface IFlavorTextEntry {
