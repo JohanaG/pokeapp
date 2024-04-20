@@ -20,4 +20,10 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/pokemon-type/routes').then((r) => r.routes),
   },
+  {
+    path: 'huevo-pokemon',
+    component: DefaultLayoutComponent,
+    loadChildren: () =>
+      import('./pages/pokemon-egg-group/routes').then((r) => r.routes),
+  },
 ];
