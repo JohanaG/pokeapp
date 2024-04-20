@@ -1,10 +1,10 @@
-import { IPokemonTypeModel } from './pokemon-type.model';
+import { ITypeDetailModel } from './pokemon-type-detail.model';
 import { IPokemonModel } from './pokemon.model';
 
 export interface IPokemonDetailModel {
   id: number;
   cover: string;
-  types: IPokemonTypeModel[];
+  types: ITypeDetailModel[];
   weight: number;
   height: number;
   abilities: IPokemonModel[];

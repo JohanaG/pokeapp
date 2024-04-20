@@ -9,7 +9,7 @@ export abstract class PokemonRepositoryDomain {
   abstract getPokemonList(): Observable<IPokemonModel[]>;
   abstract getPokemonById(id: number): Observable<IPokemonDetailModel>;
   abstract getPokemonByName(name: string): Observable<IPokemonDetailModel>;
-  abstract getPokemonTypeById(id: number): Observable<IPokemonTypeModel[]>;
+  abstract getPokemonTypeById(id: number): Observable<IPokemonTypeModel>;
   abstract getPokemonSpecieById(id: number): Observable<IPokemonSpeciesModel>;
   abstract getEvolutionChance(id: number): Observable<IPokemonModel[]>;
   abstract getAbilityByName(name: string): Observable<IPokemonAbilityModel>;
