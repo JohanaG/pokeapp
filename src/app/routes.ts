@@ -26,4 +26,5 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./pages/pokemon-egg-group/routes').then((r) => r.routes),
   },
+  { path: '**', redirectTo: '/' },
 ];
