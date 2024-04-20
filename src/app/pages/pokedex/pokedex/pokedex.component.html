@@ -1,0 +1,13 @@
+<article class="flex flex-col rounded-md bg-gray-400">
+  <ul class="grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
+    <ng-container *ngFor="let pokemon of getPokemons | async">
+      <app-pokemon [pokemon]="pokemon" />
+    </ng-container>
+  </ul>
+  <button
+    class="mx-auto mb-2 rounded-md bg-pink-800 px-2 py-1 text-center text-sm font-semibold text-white"
+    (click)="showMore()"
+  >
+    Ver más
+  </button>
+</article>
