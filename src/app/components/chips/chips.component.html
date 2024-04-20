@@ -1,9 +1,11 @@
 <ul class="flex gap-2">
   <li
-    class="rounded px-2 py-0.5 text-white"
+    class="cursor-pointer rounded px-2 py-0.5 text-white"
     [ngClass]="type.background"
     *ngFor="let type of chips"
   >
-    {{ type.name }}
+    <a routerLink="/tipos/{{ getId(type.url) }}">
+      {{ type.name }}
+    </a>
   </li>
 </ul>
