@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { switchMap, tap } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs';
 import { GetPokemonByIdUseCase } from 'src/usecases/pokemon/get-pokemon-by-id.usecase';
 import { DataModule } from 'src/data/data.module';
 import { ChipsComponent } from 'src/app/components/chips/chips.component';
@@ -44,6 +44,7 @@ export class PokemonDetailComponent {
       const pokemonTypeId = this.getId(pokemon.types[0].url);
       return this.getPokemonTypeById.execute(pokemonTypeId);
     }),
+    map((value) => value.weaknesses),
   );
 
   pokemonSpecies = this.pokemon.pipe(

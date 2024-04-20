@@ -20,15 +20,19 @@
           {{ (pokemonSpecies | async)?.category }}
         </p>
         <p class="font-bold">Habilidades</p>
-        <p>
-          <a
-            class="font-medium not-last:after:px-2 not-last:after:content-['-']"
+        <ul class="flex justify-center gap-4">
+          <li
             *ngFor="let item of pokemonDetail.abilities"
-            routerLink="/habilidades/{{ item.name }}"
+            class="rounded-md bg-gray-400 px-2"
           >
-            {{ item.name }}</a
-          >
-        </p>
+            <a
+              class="font-medium text-white"
+              routerLink="/habilidades/{{ item.name }}"
+            >
+              {{ item.name }}</a
+            >
+          </li>
+        </ul>
         <p class="font-bold">Descripcion</p>
         <p class="text-justify">
           {{ (pokemonSpecies | async)?.description }}
