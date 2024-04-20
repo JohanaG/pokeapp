@@ -1,5 +1,10 @@
+import { IPokemonModel } from 'src/domain/models/pokemon.model';
+
 export interface IPokemonTypeDetails {
   damage_relations: IDamageRelations;
+  name: string;
+  names: Name[];
+  pokemon: Pokemon[];
 }
 
 export interface IDamageRelations {
@@ -9,4 +14,14 @@ export interface IDamageRelations {
 export interface IGeneration {
   name: string;
   url: string;
+}
+
+export interface Pokemon {
+  pokemon: IPokemonModel;
+  slot: number;
+}
+
+export interface Name {
+  language: IPokemonModel;
+  name: string;
 }

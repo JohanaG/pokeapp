@@ -47,7 +47,7 @@ export class PokemonRepository extends PokemonRepositoryDomain {
       .pipe(map((value) => this.mapper.mapFrom(value)));
   }
 
-  getPokemonTypeById(id: number): Observable<IPokemonTypeModel[]> {
+  getPokemonTypeById(id: number): Observable<IPokemonTypeModel> {
     const endpoint = this.urlTypeDetail + '/' + id;
     return this.http
       .get<IPokemonTypeDetails>(endpoint)
