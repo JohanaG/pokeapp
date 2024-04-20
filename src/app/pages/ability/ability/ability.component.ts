@@ -7,11 +7,18 @@ import { GetPokemonAbilityUseCase } from 'src/usecases/pokemon/get-pokemon-abili
 import { DataModule } from 'src/data/data.module';
 import { PokemonComponent } from 'src/app/components/pokemon/pokemon.component';
 import { HeaderPokemonComponent } from 'src/app/components/header-pokemon/header-pokemon.component';
+import { TypesPokemonComponent } from 'src/app/components/types-pokemon/types-pokemon.component';
 
 @Component({
   selector: 'app-ability',
   standalone: true,
-  imports: [CommonModule, DataModule, PokemonComponent, HeaderPokemonComponent],
+  imports: [
+    CommonModule,
+    DataModule,
+    PokemonComponent,
+    HeaderPokemonComponent,
+    TypesPokemonComponent,
+  ],
   templateUrl: './ability.component.html',
 })
 export class AbilityComponent {
