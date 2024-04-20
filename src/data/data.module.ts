@@ -4,7 +4,7 @@ import {
   getPokemonAllProvider,
   getPokemonByIdProvider,
   getPokemonByNameProvider,
-  getPokemonEggGroupByIdProvider,
+  getPokemonEggGroupByNameProvider,
   getPokemonEvolutionProvider,
   getPokemonSpeciesByIdProvider,
   getPokemonTypeByIdProvider,
@@ -21,7 +21,7 @@ import {
     getPokemonEvolutionProvider,
     getPokemonByNameProvider,
     getPokemonAbilityProvider,
-    getPokemonEggGroupByIdProvider,
+    getPokemonEggGroupByNameProvider,
   ],
 })
 export class DataModule {}

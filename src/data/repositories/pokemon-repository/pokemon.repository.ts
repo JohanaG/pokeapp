@@ -39,9 +39,10 @@ export class PokemonRepository extends PokemonRepositoryDomain {
   private mapperAbility = new PokemonAbilityMapper();
   private mapperEggGroup = new PokemonEggGroupMapper();
 
-  getPokemonList(): Observable<IPokemonModel[]> {
+  getPokemonList(offset: number): Observable<IPokemonModel[]> {
+    const endpoint = this.urlBase + `?offset=${offset}`;
     return this.http
-      .get<IPokemonEntity>(this.urlBase)
+      .get<IPokemonEntity>(endpoint)
       .pipe(map((pokemonList) => pokemonList.results));
   }
 
@@ -88,8 +89,8 @@ export class PokemonRepository extends PokemonRepositoryDomain {
     );
   }
 
-  getEggGroupById(id: number): Observable<IPokemonEggGroupModel> {
-    const endpoint = this.urlEggGroup + '/' + id;
+  getEggGroupByName(name: string): Observable<IPokemonEggGroupModel> {
+    const endpoint = this.urlEggGroup + '/' + name;
     return this.http
       .get<IEggGroupEntity>(endpoint)
       .pipe(map(this.mapperEggGroup.mapFrom));

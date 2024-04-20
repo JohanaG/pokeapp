@@ -7,12 +7,12 @@ import { IPokemonAbilityModel } from '../models/pokemon-ability.model';
 import { IPokemonEggGroupModel } from '../models/pokemon-egg-group.model';
 
 export abstract class PokemonRepositoryDomain {
-  abstract getPokemonList(): Observable<IPokemonModel[]>;
+  abstract getPokemonList(offset: number): Observable<IPokemonModel[]>;
   abstract getPokemonById(id: number): Observable<IPokemonDetailModel>;
   abstract getPokemonByName(name: string): Observable<IPokemonDetailModel>;
   abstract getPokemonTypeById(id: number): Observable<IPokemonTypeModel>;
   abstract getPokemonSpecieById(id: number): Observable<IPokemonSpeciesModel>;
   abstract getEvolutionChance(id: number): Observable<IPokemonModel[]>;
   abstract getAbilityByName(name: string): Observable<IPokemonAbilityModel>;
-  abstract getEggGroupById(id: number): Observable<IPokemonEggGroupModel>;
+  abstract getEggGroupByName(name: string): Observable<IPokemonEggGroupModel>;
 }
