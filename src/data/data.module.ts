@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
+  getPokemonAbilityProvider,
   getPokemonAllProvider,
   getPokemonByIdProvider,
   getPokemonByNameProvider,
@@ -18,6 +19,7 @@ import {
     getPokemonSpeciesByIdProvider,
     getPokemonEvolutionProvider,
     getPokemonByNameProvider,
+    getPokemonAbilityProvider,
   ],
 })
 export class DataModule {}
